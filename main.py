@@ -3,6 +3,8 @@ import win32api
 from win32con import VK_MEDIA_PLAY_PAUSE, KEYEVENTF_EXTENDEDKEY
 from win32con import VK_MEDIA_NEXT_TRACK, KEYEVENTF_EXTENDEDKEY
 from win32con import VK_MEDIA_PREV_TRACK, KEYEVENTF_EXTENDEDKEY
+from win32con import VK_VOLUME_DOWN, KEYEVENTF_EXTENDEDKEY
+from win32con import VK_VOLUME_UP, KEYEVENTF_EXTENDEDKEY
 
 import keyboard
 
@@ -23,6 +25,12 @@ while running:
         if event.type == pygame.JOYBUTTONDOWN: 
             if controller.get_button(7):
                 pygame.quit()
+            elif controller.get_button(4):
+                win32api.keybd_event(VK_VOLUME_DOWN, 0, KEYEVENTF_EXTENDEDKEY, 0)
+            elif controller.get_button(5):
+                win32api.keybd_event(VK_VOLUME_UP, 0, KEYEVENTF_EXTENDEDKEY, 0)
+
+
 
 
 
